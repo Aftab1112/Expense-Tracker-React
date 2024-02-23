@@ -19,6 +19,14 @@ export default function ExpenseForm({ setExpenses }) {
     });
   };
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setExpense((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
   return (
     <form className="expense-form" onSubmit={handleSubmit}>
       <div className="input-container">
@@ -27,9 +35,7 @@ export default function ExpenseForm({ setExpenses }) {
           id="title"
           name="title"
           value={expense.title}
-          onChange={(e) =>
-            setExpense((prevState) => ({ ...prevState, title: e.target.value }))
-          }
+          onChange={handleChange}
         />
       </div>
       <div className="input-container">
@@ -38,12 +44,7 @@ export default function ExpenseForm({ setExpenses }) {
           id="category"
           name="category"
           value={expense.category}
-          onChange={(e) =>
-            setExpense((prevState) => ({
-              ...prevState,
-              category: e.target.value,
-            }))
-          }
+          onChange={handleChange}
         >
           <option hidden>Select Category</option>
           <option value="Grocery">Grocery</option>
@@ -59,12 +60,7 @@ export default function ExpenseForm({ setExpenses }) {
           id="amount"
           name="amount"
           value={expense.amount}
-          onChange={(e) =>
-            setExpense((prevState) => ({
-              ...prevState,
-              amount: e.target.value,
-            }))
-          }
+          onChange={handleChange}
         />
       </div>
       <button className="add-btn">Add</button>
