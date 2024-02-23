@@ -6,8 +6,31 @@ export default function ExpenseForm({ setExpenses }) {
     category: "",
     amount: "",
   });
+
+  const [errors, setErrors] = useState({});
+
+  const validate = (formData) => {
+    const errorsData = {};
+
+    if (!formData.title) {
+      errorsData.title = "Title is required !";
+    }
+    if (!formData.category) {
+      errorsData.category = "Category is required !";
+    }
+    if (!formData.amount) {
+      errorsData.amount = "Amount is required !";
+    }
+    setErrors(errorsData);
+    return errorsData;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const validateResult = validate(expense);
+    if (Object.keys(validateResult).length) return;
+
     setExpenses((prevState) => [
       ...prevState,
       { ...expense, id: crypto.randomUUID() },
@@ -25,6 +48,7 @@ export default function ExpenseForm({ setExpenses }) {
       ...prevState,
       [name]: value,
     }));
+    setErrors({});
   };
 
   return (
@@ -37,6 +61,7 @@ export default function ExpenseForm({ setExpenses }) {
           value={expense.title}
           onChange={handleChange}
         />
+        <p className="error">{errors.title}</p>
       </div>
       <div className="input-container">
         <label htmlFor="category">Category</label>
@@ -53,6 +78,7 @@ export default function ExpenseForm({ setExpenses }) {
           <option value="Education">Education</option>
           <option value="Medicine">Medicine</option>
         </select>
+        <p className="error">{errors.category}</p>
       </div>
       <div className="input-container">
         <label htmlFor="amount">Amount</label>
@@ -62,6 +88,7 @@ export default function ExpenseForm({ setExpenses }) {
           value={expense.amount}
           onChange={handleChange}
         />
+        <p className="error">{errors.amount}</p>
       </div>
       <button className="add-btn">Add</button>
     </form>
