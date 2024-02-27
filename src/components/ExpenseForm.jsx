@@ -19,7 +19,13 @@ export default function ExpenseForm({
 
     category: [{ required: true, message: "Please Select a category" }],
 
-    amount: [{ required: true, message: "Please Enter an Amount" }],
+    amount: [
+      { required: true, message: "Please Enter an Amount" },
+      {
+        pattern: /^(0|[1-9]\d*)(\.\d+)?$/,
+        message: "Please enter a valid number",
+      },
+    ],
   };
 
   const validate = (formData) => {
@@ -32,6 +38,10 @@ export default function ExpenseForm({
           return true;
         }
         if (rule.minLength && value.length < 5) {
+          errorsData[key] = rule.message;
+          return true;
+        }
+        if (rule.pattern && !rule.pattern.test(value)) {
           errorsData[key] = rule.message;
           return true;
         }
