@@ -5,13 +5,18 @@ export default function ContextMenu({
   setMenuPosition,
   setExpenses,
   rowId,
+  setExpense,
+  expenses,
 }) {
   if (!menuPosition.left) return;
   return (
     <div className="context-menu" style={menuPosition}>
       <div
         onClick={() => {
-          console.log("Editing");
+          const { title, category, amount } = expenses.find(
+            (expense) => expense.id === rowId
+          );
+          setExpense({ title, category, amount });
           setMenuPosition({});
         }}
       >
