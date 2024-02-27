@@ -7,6 +7,7 @@ export default function ContextMenu({
   rowId,
   setExpense,
   expenses,
+  setEditingRowId,
 }) {
   if (!menuPosition.left) return;
   return (
@@ -16,6 +17,7 @@ export default function ContextMenu({
           const { title, category, amount } = expenses.find(
             (expense) => expense.id === rowId
           );
+          setEditingRowId(rowId);
           setExpense({ title, category, amount });
           setMenuPosition({});
         }}
