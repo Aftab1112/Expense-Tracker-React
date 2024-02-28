@@ -1,8 +1,29 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Expense Tracker
 
-Currently, two official plugins are available:
+This is an ideal expense tracking CRUD app developed with React and Vite. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## Overview
+
+This application enables users to conveniently store, edit, and delete their expenses directly from the table as needed.
+## Credits
+
+* **Author :** Aftab Reshamwale
+
+ Please feel free to offer any additional insights, identify known issues, and suggest improvements for further enhancement of this project.
+## Tech Stack
+
+* HTML
+* CSS
+* React
+## Demo
+
+[Live Demo](https://expense-tracker-neon-beta.vercel.app/)
+
+**Note :** Upon initial app loading, the table is populated with dummy data for demonstration purposes. Users have the option to delete this data and input their own information.
+## Credits
+
+* **Author  :** Aftab Reshamwale
+
+ Please feel free to offer any additional insights, identify known issues, and suggest improvements for further enhancement of this project.
