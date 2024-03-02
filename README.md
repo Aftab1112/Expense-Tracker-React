@@ -7,11 +7,7 @@ This is an ideal expense tracking CRUD app developed with React and Vite.
 ## Overview
 
 This application enables users to conveniently store, edit, and delete their expenses directly from the table as needed.
-## Credits
 
-* **Author :** Aftab Reshamwale
-
- Please feel free to offer any additional insights, identify known issues, and suggest improvements for further enhancement of this project.
 ## Tech Stack
 
 * HTML
